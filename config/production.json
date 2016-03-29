@@ -1,0 +1,5 @@
+{
+    "server": {
+        "testUrl": "https://test.testapp.net/production/api/"
+    }
+}

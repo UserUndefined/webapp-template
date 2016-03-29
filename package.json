@@ -1,16 +1,19 @@
 {
-    "name": "webapp-template",
-    "version": "0.0.1",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:UserUndefined/webapp-template.git"
-    },
-    "dependencies": {
-    },
-    "devDependencies": {
-        "load-grunt-tasks": "~0.6.0"
-    },
-    "engines": {
-        "node": ">=0.10.25"
-    }
+  "name": "webapp-template",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:UserUndefined/webapp-template.git"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-ng-constant": "^2.0.1",
+    "load-grunt-tasks": "^3.4.1"
+  },
+  "engines": {
+    "node": "4.4.0"
+  }
 }

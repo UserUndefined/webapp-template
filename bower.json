@@ -2,13 +2,7 @@
   "name": "webapp-template",
   "version": "0.0.1",
   "dependencies": {
-    "lodash": "3.10.0",
-    "angular": "1.4.7",
-    "Materialize": "materialize#~0.97.5"
+    "angular": "^1.5.3"
   },
-  "devDependencies": {},
-  "resolutions": {
-    "jquery": "2.1.4",
-    "angular": "1.4.7"
-  }
+  "devDependencies": {}
 }
