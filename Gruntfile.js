@@ -101,6 +101,77 @@ module.exports = function (grunt) {
                     }
                 ]
             }
+        },
+        concat_css: {
+            options: {},
+            all: {
+                src: ['<%= config.tmp %>/<%= config.styles %>/*.css'],
+                dest: '<%= config.tmp %>/<%= config.styles %>/main.css'
+            }
+        },
+        copy: {
+            styles: {
+                src: '<%= config.tmp %>/<%= config.styles %>/main.css',
+                dest: '<%= config.dist %>/<%= config.styles %>/main.css'
+            },
+            html: {
+                src: '<%= config.app %>/index.html',
+                dest: '<%= config.dist %>/index.html'
+            },
+            distComponents: {
+                expand: true,
+                cwd: '<%= config.app %>/<%= config.components %>/',
+                dest: '<%= config.dist %>//<%= config.components %>/',
+                src: ['**']
+            },
+            distTemplates: {
+                expand: true,
+                cwd: '<%= config.app %>/<%= config.views %>/',
+                dest: '<%= config.dist %>//<%= config.views %>/',
+                src: ['**']
+            },
+            images: {
+                expand: true,
+                cwd: '<%= config.app %>/<%= config.images %>/',
+                dest: '<%= config.dist %>/<%= config.images %>/',
+                src: ['**']
+            },
+            font: {
+                expand: true,
+                cwd: '<%= config.app %>/<%= config.font %>/',
+                dest: '<%= config.dist %>/<%= config.font %>/',
+                src: ['**']
+            },
+            scripts: {
+                expand: true,
+                cwd: '<%= config.app %>/<%= config.scripts %>/',
+                dest: '<%= config.tmp %>/<%= config.scripts %>/',
+                src: ['{,**/}*.js']
+            },
+            "distDevelopment": {
+                expand: true,
+                cwd: '<%= config.dist %>',
+                dest: '<%= config.build %>/development',
+                src: ['**']
+            },
+            "distQa": {
+                expand: true,
+                cwd: '<%= config.dist %>',
+                dest: '<%= config.build %>/qa',
+                src: ['**']
+            },
+            "distStaging": {
+                expand: true,
+                cwd: '<%= config.dist %>',
+                dest: '<%= config.build %>/staging',
+                src: ['**']
+            },
+            "distProduction": {
+                expand: true,
+                cwd: '<%= config.dist %>',
+                dest: '<%= config.build %>/production',
+                src: ['**']
+            }
         }
     });
 
@@ -148,8 +219,8 @@ module.exports = function (grunt) {
         grunt.task.run([
             'compass',
             'autoprefixer',
-            //'concat_css',
-            //'copy:styles',
+            'concat_css',
+            'copy:styles',
             //'copy:html',
             //'copy:distComponents',
             //'copy:distTemplates',
