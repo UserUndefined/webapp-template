@@ -70,6 +70,37 @@ module.exports = function (grunt) {
                     TEST_API_URL: config("production").server.testUrl
                 }
             }
+        },
+        compass: {
+            options: {
+                sassDir: '<%= config.app %>/<%= config.styles %>',
+                imagesDir: '<%= config.app %>/<%= config.images %>',
+                javascriptsDir: '<%= config.app %>/<%= config.scripts %>',
+                importPath: '<%= config.app %>/<%= config.components %>',
+                httpImagesPath: '/<%= config.images %>',
+                httpGeneratedImagesPath: '/<%= config.images %>/generated',
+                relativeAssets: false,
+                assetCacheBuster: false,
+                raw: 'Sass::Script::Number.precision = 10\n'
+            },
+            server: {
+                options: {
+                    cssDir: '<%= config.tmp %>/<%= config.styles %>',
+                    generatedImagesDir: '<%= config.tmp %>/<%= config.images %>/generated'
+                }
+            }
+        },
+        autoprefixer: {
+            dist: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= config.tmp %>/<%= config.styles %>/',
+                        src: '{,**/}*.css',
+                        dest: '<%= config.tmp %>/<%= config.styles %>/'
+                    }
+                ]
+            }
         }
     });
 
@@ -84,28 +115,57 @@ module.exports = function (grunt) {
     grunt.registerTask('buildQa', function () {
         grunt.task.run([
             'taskCleanWorkingDirs',
-            'ngconstant:qa'
+            'ngconstant:qa',
+            'taskBuildCode'
         ]);
     });
 
     grunt.registerTask('buildDev', function () {
         grunt.task.run([
             'taskCleanWorkingDirs',
-            'ngconstant:development'
+            'ngconstant:development',
+            'taskBuildCode'
         ]);
     });
 
     grunt.registerTask('buildProduction', function () {
         grunt.task.run([
             'taskCleanWorkingDirs',
-            'ngconstant:production'
+            'ngconstant:production',
+            'taskBuildCode'
         ]);
     });
 
     grunt.registerTask('buildStaging', function () {
         grunt.task.run([
             'taskCleanWorkingDirs',
-            'ngconstant:staging'
+            'ngconstant:staging',
+            'taskBuildCode'
+        ]);
+    });
+
+    grunt.registerTask('taskBuildCode', function () {
+        grunt.task.run([
+            'compass',
+            'autoprefixer',
+            //'concat_css',
+            //'copy:styles',
+            //'copy:html',
+            //'copy:distComponents',
+            //'copy:distTemplates',
+            //'copy:images',
+            //'copy:font',
+            //'copy:scripts',
+            //'useminPrepare' //do no use
+            //'concat',
+            //'ngAnnotate',
+            //'uglify',
+            //'cssmin',
+            //'rev',
+            //'usemin',
+            //'clean:distBower',
+            //'clean:server',
+            //'clean:sasscache'
         ]);
     });
 
@@ -115,10 +175,10 @@ module.exports = function (grunt) {
             //'buildProduction',
             //'buildStaging',
             //'buildQa',
-            'buildDev',
-            'clean:dist',
-            'clean:server',
-            'clean:sasscache'
+            'buildDev'
+            //'clean:dist',
+            //'clean:server',
+            //'clean:sasscache'
         ]);
     });
 };

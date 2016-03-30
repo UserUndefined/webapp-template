@@ -2,7 +2,8 @@
   "name": "webapp-template",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "^1.5.3"
+    "angular": "^1.5.3",
+    "Materialize": "materialize#^0.97.5"
   },
   "devDependencies": {}
 }
