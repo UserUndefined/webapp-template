@@ -1,0 +1,150 @@
+<div class="col s12 m12 l12">
+    <div class="row">
+        <h4>Main Page</h4>
+    </div>
+    <div class="row">
+        <div class="row col s12 product-section">
+            <div class="input-field col s3">
+                <div class='tg-switch'>
+                    <input class='tgl tgl-flip' id='cb1' type='checkbox'>
+                    <label class='tgl-btn' data-tg-off='Review' data-tg-on='Reviewed' for='cb1'></label>
+                </div>
+            </div>
+            <div class="input-field col s3">
+                <div class='tg-switch'>
+                    <input class='tgl tgl-flip' id='cb2' type='checkbox'>
+                    <label class='tgl-btn' data-tg-off='Start' data-tg-on='Started' for='cb2'></label>
+                </div>
+            </div>
+            <div class="input-field col s3">
+                <div class='tg-switch'>
+                    <input class='tgl tgl-flip' id='cb3' type='checkbox'>
+                    <label class='tgl-btn' data-tg-off='Issue' data-tg-on='No Issue' for='cb3'></label>
+                </div>
+            </div>
+            <div class="input-field col s3">
+                <div class='tg-switch'>
+                    <input class='tgl tgl-flip' id='cb4' type='checkbox'>
+                    <label class='tgl-btn' data-tg-off='Complete' data-tg-on='Completed' for='cb4'></label>
+                </div>
+            </div>
+        </div>
+        <div class="row col s12 product-section">
+            <div class="input-field">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">perm_identity</i>A A Aardvark</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s3">
+                                    <p>Customer:</p>
+                                </div>
+                                <div class="col s9">
+                                    <p>A A Aaardvarks Ltd</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s3">
+                                    <p>Telephone:</p>
+                                </div>
+                                <div class="col s9">
+                                    <p>0800 555 555</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s3">
+                                    <p>Address:</p>
+                                </div>
+                                <div class="col s9">
+                                    <p>1 High Street</p>
+                                    <p>Northtown</p>
+                                    <p>Northshire</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">work</i>Order - SEO + Website</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <p>Here are some details about the order</p>
+                                    <p>Product 1: SEO</p>
+                                    <p>Product 2: Website</p>
+                                    <p>URL: www.test.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">assignment</i>Links to Materials</div>
+                        <div class="collapsible-body">
+                            <p><a href="#">Dropbox - Company Logo</a></p>
+                            <p><a href="#">Dropbox - Photo - Office</a></p>
+                            <p><a href="#">Dropbox - Photo - Van</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row col s12 product-section">
+            <form>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>What is your comment about?</option>
+                            <option value="1">Issue</option>
+                            <option value="2">Customer</option>
+                            <option value="2">Order</option>
+                            <option value="2">Fulfilment</option>
+                        </select>
+                        <label>Comment Type</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+                        <label for="textarea1">Add Comment</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button id="saveComment" class="btn waves-effect waves-light col s12" type="submit" name="action" href="#" ng-click="saveActivity()">Save Comment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row col s12 product-section">
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <i class="material-icons circle red">comment</i>
+                    <span class="title">Issue</span>
+                    <p>01-Mar-2016 09:30<br>
+                        SEO not working
+                    </p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle red">comment</i>
+                    <span class="title">Issue</span>
+                    <p>27-Feb-2016 09:45<br>
+                        Wrong keywords entered
+                    </p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle blue">comment</i>
+                    <span class="title">Customer</span>
+                    <p>25-Feb-2016 11:30<br>
+                        Customer supplied new key words
+                    </p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle green">comment</i>
+                    <span class="title">Fulfilment</span>
+                    <p>25-Feb-2016 12:30<br>
+                        SEO content has been entered
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
