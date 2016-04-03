@@ -17,10 +17,12 @@
     <meta name="theme-color" content="#EE6E73">
     <!-- CSS-->
     <!-- build:css styles/main.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/Materialize/bin/materialize.css" />
+    <!-- endbower -->
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- endbuild -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
@@ -75,7 +77,12 @@
 
 <!-- build:js scripts/app.js -->
 <!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/Materialize/bin/materialize.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
 <!-- endbower -->
 <script src="scripts/config.js"></script>
 <script src="scripts/app.js"></script>
