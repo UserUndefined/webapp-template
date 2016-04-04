@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router'])
+angular.module('app', ['appTemplates', 'ui.router'])
 
     .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
