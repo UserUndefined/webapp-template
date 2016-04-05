@@ -95,7 +95,7 @@ module.exports = function (grunt) {
                 options: {
                     space: '  ',
                     name: 'config',
-                    dest: '<%= config.app %>/<%= config.scripts %>/config.js',
+                    dest: '<%= config.tmp %>/<%= config.scripts %>/config.js',
                     wrap: '"use strict";\n {%= __ngModule %}'
                 },
                 development: {
@@ -162,6 +162,14 @@ module.exports = function (grunt) {
                     src: '<%= config.tmp %>/<%= config.styles %>/main.css',
                     dest: '<%= config.dist %>/<%= config.styles %>/main.css'
                 },
+                appMainJs: {
+                    src: '<%= config.dist %>/<%= config.scripts %>/main.js',
+                    dest: '<%= config.app %>/<%= config.scripts %>/main.js'
+                },
+                appMainCss: {
+                    src: '<%= config.tmp %>/<%= config.styles %>/main.css',
+                    dest: '<%= config.app %>/<%= config.styles %>/main.css'
+                },
                 html: {
                     src: '<%= config.app %>/index.html',
                     dest: '<%= config.dist %>/index.html'
@@ -172,7 +180,7 @@ module.exports = function (grunt) {
                     dest: '<%= config.dist %>//<%= config.components %>/',
                     src: ['**']
                 },
-                distTemplates: {
+                tmpTemplates: {
                     expand: true,
                     cwd: '<%= config.app %>/<%= config.views %>/',
                     dest: '<%= config.tmp %>/<%= config.views %>/',
@@ -194,7 +202,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= config.app %>/<%= config.scripts %>/',
                     dest: '<%= config.tmp %>/<%= config.scripts %>/',
-                    src: ['{,**/}*.js']
+                    src: ['controllers/*.js','directives/*.js','rest/*.js', 'services/*.js','app.js']
                 },
                 "distDevelopment": {
                     expand: true,
@@ -257,7 +265,7 @@ module.exports = function (grunt) {
                         '<%= config.tmp %>/<%= config.scripts %>/rest/*.js',
                         '<%= config.tmp %>/<%= config.scripts %>/services/*.js'
                     ],
-                    dest: '<%= config.dist %>/<%= config.scripts %>/app.js'
+                    dest: '<%= config.dist %>/<%= config.scripts %>/main.js'
                 }
             },
             ngAnnotate: {
@@ -280,7 +288,7 @@ module.exports = function (grunt) {
                 },
                 dist: {
                     files: {
-                        '<%= config.dist %>/<%= config.scripts %>/app.js': ['<%= config.dist %>/<%= config.scripts %>/app.js']
+                        '<%= config.dist %>/<%= config.scripts %>/app.js': ['<%= config.dist %>/<%= config.scripts %>/main.js']
                     }
                 }
             },
@@ -389,7 +397,7 @@ module.exports = function (grunt) {
             'compass',
             'autoprefixer',
             'concat_css',
-            'copy:distTemplates',
+            'copy:tmpTemplates',
             'html2js',
             'copy:scripts',
             'concat',
@@ -415,7 +423,8 @@ module.exports = function (grunt) {
             'buildProduction',
             'buildStaging',
             'buildQa',
-            'buildDev'
+            'buildDev',
+            'clean:dist'
         ]);
     });
 
@@ -425,6 +434,26 @@ module.exports = function (grunt) {
             'ngconstant:development',
             'compass',
             'autoprefixer',
+            'connect:livereload',
+            'watch'
+        ]);
+    });
+
+    grunt.registerTask('serve', function () {
+        grunt.task.run([
+            'taskCleanWorkingDirs',
+            'ngconstant:development',
+            'wiredep',
+            'compass',
+            'autoprefixer',
+            'concat_css',
+            'copy:tmpTemplates',
+            'html2js',
+            'copy:scripts',
+            'concat',
+            'ngAnnotate',
+            'copy:appMainJs',
+            'copy:appMainCss',
             'connect:livereload',
             'watch'
         ]);
