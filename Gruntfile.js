@@ -55,7 +55,16 @@ module.exports = function (grunt) {
             },
             watch: {
                 js: {
-                    files: ['<%= config.app %>/<%= config.scripts %>/{,**/}*.js'],
+                    files: [
+                        '<%= config.app %>/<%= config.scripts %>/bower_comp.js',
+                        '<%= config.app %>/<%= config.scripts %>/config.js',
+                        '<%= config.app %>/<%= config.scripts %>/appTemplates.js',
+                        '<%= config.app %>/<%= config.scripts %>/app.js',
+                        '<%= config.app %>/<%= config.scripts %>/controllers/*.js',
+                        '<%= config.app %>/<%= config.scripts %>/directives/*.js',
+                        '<%= config.app %>/<%= config.scripts %>/rest/*.js',
+                        '<%= config.app %>/<%= config.scripts %>/services/*.js'
+                    ],
                     options: {
                         livereload: true
                     },
