@@ -356,6 +356,16 @@ module.exports = function (grunt) {
                         '<%= config.dist %>/index.html': '<%= config.dist %>/index.html'
                     }
                 }
+            },
+            karma: {
+                unit: {
+                    configFile: 'karma.conf.js'
+                },
+                continuous: {
+                    configFile: 'karma.conf.js',
+                    singleRun: true,
+                    browsers: ['PhantomJS']
+                },
             }
         }
     );
@@ -463,6 +473,25 @@ module.exports = function (grunt) {
             'copy:appMainCss',
             'connect:livereload',
             'watch'
+        ]);
+    });
+
+    grunt.registerTask('unit', function () {
+        grunt.task.run([
+            'taskCleanWorkingDirs',
+            'ngconstant:development',
+            'wiredep',
+            'compass',
+            'autoprefixer',
+            'concat_css',
+            'copy:tmpTemplates',
+            'html2js',
+            'copy:scripts',
+            'concat',
+            'ngAnnotate',
+            'copy:appMainJs',
+            'copy:appMainCss',
+            'karma:continuous'
         ]);
     });
 };
