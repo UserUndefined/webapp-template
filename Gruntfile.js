@@ -270,6 +270,7 @@ module.exports = function (grunt) {
                         '<%= config.tmp %>/<%= config.scripts %>/appTemplates.js',
                         '<%= config.tmp %>/<%= config.scripts %>/app.js',
                         '<%= config.tmp %>/<%= config.scripts %>/controllers/*.js',
+                        '<%= config.tmp %>/<%= config.scripts %>/directives/*.js',
                         '<%= config.tmp %>/<%= config.scripts %>/rest/*.js',
                         '<%= config.tmp %>/<%= config.scripts %>/services/*.js'
                     ],
