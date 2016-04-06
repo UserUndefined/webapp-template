@@ -58,8 +58,15 @@ module.exports = function (grunt) {
                     files: ['<%= config.app %>/<%= config.scripts %>/{,**/}*.js'],
                     options: {
                         livereload: true
-                    }//,
-                    //tasks: ['compass:server', 'autoprefixer']
+                    },
+                    tasks: ['autoprefixer','copy:scripts','concat','ngAnnotate','copy:appMainJs']
+                },
+                html: {
+                    files: ['<%= config.app %>/<%= config.views %>/{,**/}*.html'],
+                    options: {
+                        livereload: true
+                    },
+                    tasks: ['copy:tmpTemplates','html2js','concat','ngAnnotate','copy:appMainJs']
                 },
                 compass: {
                     files: ['<%= config.app %>/<%= config.styles %>/{,**/}*.{scss,sass}'],
