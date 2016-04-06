@@ -295,7 +295,7 @@ module.exports = function (grunt) {
                     files: [{
                         expand: true,
                         cwd: '<%= config.dist %>/<%= config.scripts %>',
-                        src: 'app.js',
+                        src: 'main.js',
                         dest: '<%= config.dist %>/<%= config.scripts %>'
                     }]
                 }
@@ -306,7 +306,7 @@ module.exports = function (grunt) {
                 },
                 dist: {
                     files: {
-                        '<%= config.dist %>/<%= config.scripts %>/app.js': ['<%= config.dist %>/<%= config.scripts %>/main.js']
+                        '<%= config.dist %>/<%= config.scripts %>/main.js': ['<%= config.dist %>/<%= config.scripts %>/main.js']
                     }
                 }
             },
