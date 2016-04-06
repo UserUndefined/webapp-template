@@ -58,7 +58,8 @@ module.exports = function (grunt) {
                     files: ['<%= config.app %>/<%= config.scripts %>/{,**/}*.js'],
                     options: {
                         livereload: true
-                    }
+                    }//,
+                    //tasks: ['compass:server', 'autoprefixer']
                 },
                 compass: {
                     files: ['<%= config.app %>/<%= config.styles %>/{,**/}*.{scss,sass}'],
@@ -425,17 +426,6 @@ module.exports = function (grunt) {
             'buildQa',
             'buildDev',
             'clean:dist'
-        ]);
-    });
-
-    grunt.registerTask('serve', function () {
-        grunt.task.run([
-            'taskCleanBasic',
-            'ngconstant:development',
-            'compass',
-            'autoprefixer',
-            'connect:livereload',
-            'watch'
         ]);
     });
 

@@ -12,14 +12,21 @@ angular.module('app', ['appTemplates', 'ui.router'])
         function ($stateProvider, $urlRouterProvider) {
 
             var mainView = {
-                url: '/',
-                templateUrl: 'views/main.html',
-                controller: 'MainController'
-            };
+                    url: '/',
+                    templateUrl: 'views/main.html',
+                    controller: 'MainController'
+                    },
+                directivesExamplesView = {
+                    url: '/directives',
+                    templateUrl: 'views/directiveExamples.html',
+                    controller: 'directiveExamplesController'
+
+                };
 
             $stateProvider
 
-                .state('main', mainView);
+            .state('main', mainView)
+            .state('directivesExamples', directivesExamplesView);
 
             $urlRouterProvider.otherwise('/');
 
