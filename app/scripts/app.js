@@ -21,12 +21,18 @@ angular.module('app', ['appTemplates', 'ui.router', 'config', 'restangular'])
                     templateUrl: 'views/directiveExamples.html',
                     controller: 'directiveExamplesController'
 
+                },
+                formValidationExampleView = {
+                    url: '/forms',
+                    templateUrl: 'views/formValidation.html',
+                    controller: 'formValidationExampleController'
                 };
 
             $stateProvider
 
             .state('main', mainView)
-            .state('directivesExamples', directivesExamplesView);
+            .state('directivesExamples', directivesExamplesView)
+            .state('formValidationExample', formValidationExampleView);
 
             $urlRouterProvider.otherwise('/');
 
